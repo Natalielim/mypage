@@ -1,7 +1,6 @@
 {
   "name": "personal",
   "version": "0.0.0",
-  "main": "sample.js",
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
