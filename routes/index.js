@@ -10,6 +10,7 @@ const path = require('path');
 router.use( (req, res, next) => {
   res.locals.title = "MY PAGE";
   res.locals.currentUserId = req.session.userId;
+  res.locals.username = req.body.userId;
   next();
 });
 
