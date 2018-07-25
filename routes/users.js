@@ -13,6 +13,12 @@ router.get('/', (req, res, next) => {
   });
 });
 
+// User get
+router.get('/new', (req, res, next) => {
+  res.render('users/new');
+})
+
+
 // Users new
 router.get('/new', (req, res, next) => {
   res.render('users/new');
