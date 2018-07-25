@@ -2,18 +2,18 @@
   <form action="/users" method="post">
     <legend>New User</legend>
 
-    <div class="form-group">
+    <div>
       <label for="user-username">Username</label>
-      <input type="text" name="username" class="form-control" id="user-username" placeholder="Username">
+      <input type="text" name="username" id="user-username" placeholder="Username" autocomplete="off">
     </div>
 
-    <div class="form-group">
+    <div>
       <label for="user-password">Password</label>
-      <input type="password" name="password" class="form-control" id="user-password" placeholder="Password">
+      <input type="password" name="password" id="user-password" placeholder="Password" autocomplete="off">
     </div>
 
-    <div class="form-group">
-      <input type="password" required class="form-control" id="confirm_password" placeholder="Confirm Password">
+    <div>
+      <input type="password" required id="confirm_password" placeholder="Confirm Password" autocomplete="off">
     </div>
 
     <script>
@@ -31,8 +31,8 @@
       confirm_password.onkeyup = validatePassword;
     </script>
 
-    <div class="text-right">
-      <button type="submit" class="btn btn-primary">Submit</button>
+    <div>
+      <button type="submit">Submit</button>
     </div>
   </form>
 </div>

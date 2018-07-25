@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/user');
 
-//Users index
+// Users index
 router.get('/', (req, res, next) => {
   User.find({}, 'username', function(err, users) {
     if(err) {
@@ -24,7 +24,7 @@ router.post('/', (req, res, next) => {
 
   user.save(function(err, user) {
     if(err) console.log(err);
-    return res.redirect('/users');
+    return res.redirect('/');
   });
 })
 
