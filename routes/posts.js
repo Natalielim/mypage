@@ -5,7 +5,7 @@ const User = require('../models/users');
 
 // Posts new
 router.get('/new', auth.requireLogin, (req, res, next) => {
-  
+
 });
 
 // Posts create
