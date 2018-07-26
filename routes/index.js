@@ -10,7 +10,7 @@ const path = require('path');
 router.use( (req, res, next) => {
   res.locals.title = "MY PAGE";
   res.locals.currentUserId = req.session.userId;
-  res.locals.username = req.body.userId;
+  res.locals.username = req.session.username;
   next();
 });
 
@@ -34,6 +34,7 @@ router.post('/login', (req, res, next) => {
       return next(next_error);
     } else {
       req.session.userId = user._id;
+      req.session.username = user.username;
 
       return res.redirect('/') ;
     }
