@@ -34,4 +34,15 @@ router.get('/new', (req, res, next) => {
   res.render('users/new');
 })
 
+// Users show
+router.get('/:id', auth.requireLogin, (req, res, next) => {
+  User.find({ username: req.session.username }, 'username', function(err, users) {
+    if(err) {
+      console.error(err);
+    } else {
+      res.render('users/show', { title: req.session.username });
+    }
+  });
+})
+
 module.exports = router;
