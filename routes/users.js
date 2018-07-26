@@ -1,23 +1,10 @@
 const express = require('express');
-const auth = require('./helpers/auth')
-const User = require('../models/user');
 const router = express.Router();
 
-// Users index
-router.get('/', (req, res, next) => {
-  User.find({}, 'username', function(err, users) {
-    if(err) {
-      console.error(err);
-    } else {
-      res.render('index.hbs', { title: "My Page" });
-    }
-  });
-});
-
-// Users new
-router.get('/new', (req, res, next) => {
-  res.render('users/new');
-})
+const auth = require('./helpers/auth')
+const User = require('../models/user');
+const Post = require('../models/post');
+const posts = require('./posts');
 
 // Users create
 router.post('/', (req, res, next) => {
@@ -29,14 +16,14 @@ router.post('/', (req, res, next) => {
   });
 })
 
-// User get new
+// User new
 router.get('/new', (req, res, next) => {
   res.render('users/new');
 })
 
 // Users show
 router.get('/:id', auth.requireLogin, (req, res, next) => {
-  User.find({ username: req.session.username }, 'username', function(err, users) {
+  User.find({ users: res.locals.currentUserId }, function(err, users) {
     if(err) {
       console.error(err);
     } else {
@@ -45,4 +32,32 @@ router.get('/:id', auth.requireLogin, (req, res, next) => {
   });
 })
 
+router.get('/:id/posts/new', auth.requireLogin, (req, res, next) => {
+  User.findById(req.params.userId, function(err, user) {
+    if(err) { console.error(err) };
+    console.log("new post loading");
+    res.render('posts/new', { username: req.session.username });
+    console.log("error here?")
+
+  });
+});
+
+// Posts create
+router.post('/:id', auth.requireLogin, (req, res, next) => {
+  User.findById(req.params.userId, function(err, user) {
+    if(err) { console.error(err) };
+
+    let post = new Post(req.body);
+    post.user = user;
+
+    post.save(function(err, post) {
+      if(err) { console.error(err) };
+
+      console.log("new post?")
+      return res.redirect(`/users/${req.session.username}`);
+    });
+  });
+});
+
+router.use('/:userId/posts', posts)
 module.exports = router;

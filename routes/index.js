@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+
 const User = require('../models/user');
 
 const AWS = require('aws-sdk');
@@ -8,7 +9,7 @@ const path = require('path');
 
 // SET layout variables
 router.use( (req, res, next) => {
-  res.locals.title = "My Page";
+  res.locals.title = "Welcome";
   res.locals.currentUserId = req.session.userId;
   res.locals.username = req.session.username;
   next();

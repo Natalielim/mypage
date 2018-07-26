@@ -1,1 +1,17 @@
-<h1>SHOWING THE USER! {{title}}</h1>
+<div>
+  <h1>{{title}}</h1>
+</div>
+
+<div>
+  {{#each post}}
+    <div>
+      <h3>{{post.title}}</h3>
+      <p>{{post.body}}</p>
+      <p>{{post.user}}</p>
+    </div>
+  {{/each}}
+</div>
+
+<div>
+  <a href="/users/{{title}}/posts/new">New Post</a>
+</div>

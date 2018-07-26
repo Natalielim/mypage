@@ -1,14 +1,13 @@
 <div>
-  <form action="/users/{{user.id}}/posts" method="post">
+  <form action="/users/{{username}}/" method="post">
     <legend>New</legend>
 
     <div>
-      <input type="text" id="post-title" placeholder="Title">
+      <input type="text" id="post-title" placeholder="Title" name="title">
     </div>
 
     <div>
-      <label>Body</label>
-      <input type="text" id="post-body">
+      <input type="text" id="post-body" placeholder="Body" name="body">
     </div>
 
     <div>
