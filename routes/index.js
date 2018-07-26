@@ -8,7 +8,7 @@ const path = require('path');
 
 // SET layout variables
 router.use( (req, res, next) => {
-  res.locals.title = "MY PAGE";
+  res.locals.title = "My Page";
   res.locals.currentUserId = req.session.userId;
   res.locals.username = req.session.username;
   next();
