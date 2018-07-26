@@ -1,6 +1,7 @@
 const express = require('express');
-const router = express.Router();
+const auth = require('./helpers/auth')
 const User = require('../models/user');
+const router = express.Router();
 
 // Users index
 router.get('/', (req, res, next) => {
@@ -8,16 +9,10 @@ router.get('/', (req, res, next) => {
     if(err) {
       console.error(err);
     } else {
-      res.render('index.hbs', { title: "MY PAGE" });
+      res.render('index.hbs', { title: "My Page" });
     }
   });
 });
-
-// User get
-router.get('/new', (req, res, next) => {
-  res.render('users/new');
-})
-
 
 // Users new
 router.get('/new', (req, res, next) => {
@@ -32,6 +27,11 @@ router.post('/', (req, res, next) => {
     if(err) console.log(err);
     return res.redirect('/');
   });
+})
+
+// User get new
+router.get('/new', (req, res, next) => {
+  res.render('users/new');
 })
 
 module.exports = router;
