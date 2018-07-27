@@ -12,13 +12,13 @@
         <a href="/">My Page</a>
       </div>
       <div class="name">
-        <a href="/users/{{username}}/">{{username}}</a>
+        <a href="/users/{{username}}/"><button>{{username}}</button></a>
       </div>
       <div class="log">
         {{# if currentUserId}}
-          <a href="/logout">log out</a>
+          <a href="/logout"><button>Log Out</button></a>
         {{else}}
-          <a href="/login">log in</a>
+          <a href="/login"><button>Log In</button></a>
         {{/if}}
       </div>
     </nav>

@@ -32,4 +32,13 @@ router.post('/', auth.requireLogin, (req, res, next) => {
   });
 });
 
+// Posts show
+router.get('/:id', auth.requireLogin, (req, res, next) => {
+  Post.findById(req.params.userId, function(err, user) {
+    if(err) { console.error(err) };
+
+    res.render('posts/show', { user: req.session.username, post: post });
+  });
+});
+
 module.exports = router;

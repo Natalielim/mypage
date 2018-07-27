@@ -50,7 +50,7 @@ router.get('/logout', (req, res, next) => {
     });
   }
 
-  return res.redirect('/login');
+  return res.redirect('/');
 });
 
 module.exports = router;

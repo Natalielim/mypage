@@ -23,11 +23,11 @@ router.get('/new', (req, res, next) => {
 
 // Users show
 router.get('/:id', auth.requireLogin, (req, res, next) => {
-  User.find({ users: res.locals.currentUserId }, function(err, users, posts) {
+  Post.find({users: res.locals.currentUserId}, function(err, posts) {
     if(err) {
       console.error(err);
     } else {
-      res.render('users/show', { title: req.session.username, posts: posts });
+      res.render('users/show', { posts: posts });
     }
   });
 })
@@ -43,17 +43,15 @@ router.get('/:id/posts/new', auth.requireLogin, (req, res, next) => {
 
 // Posts create
 router.post('/:id', auth.requireLogin, (req, res, next) => {
-  User.findById(req.params.userId, function(err, user) {
+  Post.findById(req.params.userId, function(err, user) {
     if(err) { console.error(err) };
 
     let post = new Post(req.body);
-    post.user = user;
-    post.user.push(req.session.userId);
+    post.users.push(req.session.userId);
 
     post.save(function(err, post) {
       if(err) { console.error(err) };
-
-      console.log("new post?")
+      console.log("new post posting")
       return res.redirect(`/users/${req.session.username}`);
     });
   });

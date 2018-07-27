@@ -3,15 +3,14 @@
 </div>
 
 <div>
+  <a href="/users/{{title}}/posts/new"><button>+</button></a>
+</div>
+
+<div>
   {{#each posts as |post|}}
     <div>
       <h3>{{post.title}}</h3>
       <p>{{post.body}}</p>
-      <p>{{post.user}}</p>
     </div>
   {{/each}}
-</div>
-
-<div>
-  <a href="/users/{{title}}/posts/new">New Post</a>
 </div>
