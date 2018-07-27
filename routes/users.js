@@ -23,11 +23,11 @@ router.get('/new', (req, res, next) => {
 
 // Users show
 router.get('/:id', auth.requireLogin, (req, res, next) => {
-  Post.find({users: res.locals.currentUserId}, function(err, posts) {
+  Post.find({users: res.locals.currentUserId}).sort({ date: -1}).exec(function(err, posts) {
     if(err) {
       console.error(err);
     } else {
-      res.render('users/show', { posts: posts });
+      res.render('users/show', { user: req.session.username, posts: posts });
     }
   });
 })

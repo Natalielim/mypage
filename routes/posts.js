@@ -9,24 +9,22 @@ const Post = require('../models/post');
 router.get('/new', auth.requireLogin, (req, res, next) => {
   User.findById(req.params.userId, function(err, user) {
     if(err) { console.error(err) };
-
+    console.log("new post loading");
     res.render('posts/new', { username: req.session.username });
   });
 });
 
 // Posts create
 router.post('/', auth.requireLogin, (req, res, next) => {
-  User.findById(req.params.userId, function(err, user) {
+  Post.findById(req.params.userId, function(err, user) {
     if(err) { console.error(err) };
 
     let post = new Post(req.body);
-    post.user = user;
-    post.user.push(req.session.userId);
+    post.users.push(req.session.userId);
 
     post.save(function(err, post) {
       if(err) { console.error(err) };
-
-      console.log("POSTS")
+      console.log("new post posting")
       return res.redirect(`/users/${req.session.username}`);
     });
   });
