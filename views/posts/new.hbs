@@ -1,7 +1,7 @@
 <div class="page">
   <form action="/users/{{username}}/" method="post">
-    <legend>New Post</legend>
     <div class="new-post">
+      <h1>New Post</h1>
       <input type="text" id="post-title" placeholder="Title" name="title"><br></br>
 
       <!-- Hide Method -->
@@ -13,10 +13,11 @@
 
       <!-- Select Text or Image -->
       <select id="target">
-        <option value="">Select Upload Type</option>
+        <option value="">Select Post Type</option>
         <option value="new-text">Text</option>
         <option value="new-img">Images</option>
       </select>
+      <br></br>
 
       <!-- Text Input -->
       <div id="new-text" class="hide">
@@ -57,13 +58,13 @@
 
                 var img = document.createElement("img");
                 img.src = window.URL.createObjectURL(files[i]);
-                img.height = 60;
+                img.width = 140;
                 img.onload = function() {
                   window.URL.revokeObjectURL(this.src);
                 }
                 li.appendChild(img);
                 var info = document.createElement("span");
-                info.innerHTML = files[i].name + ": " + files[i].size + " bytes";
+          //       info.innerHTML = files[i].name + ": " + files[i].size + " bytes";
                 li.appendChild(info);
               }
             }
