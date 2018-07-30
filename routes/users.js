@@ -27,7 +27,7 @@ router.get('/:id', auth.requireLogin, (req, res, next) => {
     if(err) {
       console.error(err);
     } else {
-      res.render('users/show', { user: req.session.username, posts: posts });
+      res.render('users/show', { user: req.session.username, posts: posts});
     }
   });
 })
@@ -51,12 +51,38 @@ router.post('/:id', auth.requireLogin, (req, res, next) => {
 
     post.save(function(err, post) {
       if(err) { console.error(err) };
-      console.log("new post posting")
+      console.log("new post posting 1")
       return res.redirect(`/users/${req.session.username}`);
     });
   });
 });
 
-router.use('/:userId/posts', posts)
+// Posts edit
+router.get('/:id/posts/:id/edit', auth.requireLogin, (req, res, next) => {
+  Post.findById(req.params.id, function(err, post) {
+    if (err) { console.error(err); }
+
+    res.render('posts/edit', { post: post });
+  });
+});
+
+// Posts update
+router.post('/:id/posts/:id', auth.requireLogin, (req, res, next) => {
+  Post.findByIdAndUpdate(req.params.id, req.body, function(err, post) {
+    if(err) { console.error(err) };
+
+    res.redirect('posts/:id');
+  });
+});
+
+// // Posts update
+// router.delete('/:id', auth.requireLogin, (req, res, next) => {
+//   Post.findByIdAndRemove(req.body.delete_id, function(err, post) {
+//     if (err) { console.error(err); }
+//     res.redirect('/posts/'+post._id);
+//   });
+// });
+
+router.use('/:userId/posts', posts);
 
 module.exports = router;

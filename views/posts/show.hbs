@@ -1,8 +1,9 @@
-<div>
-  <a href="/users/{{user}}"> Back</a>
-</div>
+<div class="page">
+  <div>
+    <h2>{{post.title}}</h2>
+    <p>{{post.body}}</p>
 
-<div>
-  <h2>{{post.title}}</h2>
-  <p>{{post.body}}</p>
+    <a href="/users/{{username}}">Cancel</a><br></br>
+    <a href="/users/{{username}}/posts/{{post.id}}/edit">Edit</a>
+  </div>
 </div>

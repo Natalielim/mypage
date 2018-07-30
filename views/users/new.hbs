@@ -1,44 +1,37 @@
-<div class="create-account">
+<div class="create-account page">
   <form action="/users" method="post">
-    <h1>New User</h1>
+    <h1>Create Account</h1>
+    <div>
+      <input type="text" name="username" id="user-username" placeholder="Username" autocomplete="off">
+    </div>
 
-    <container>
-      <div>
-        <input type="text" name="username" id="user-username" placeholder="Username" autocomplete="off">
-      </div>
+    <div>
+      <input type="password" name="password" id="user-password" placeholder="Password" autocomplete="off">
+    </div>
 
-      <div>
-        <input type="password" name="password" id="user-password" placeholder="Password" autocomplete="off">
-      </div>
+    <div>
+      <input type="password" required id="confirm_password" placeholder="Confirm Password" autocomplete="off">
+    </div>
 
-      <div>
-        <input type="password" required id="confirm_password" placeholder="Confirm Password" autocomplete="off">
-      </div>
+    <script>
+      var password = document.getElementById("user-password");
+      var confirm_password = document.getElementById("confirm_password");
 
-      <script>
-        var password = document.getElementById("user-password");
-        var confirm_password = document.getElementById("confirm_password");
-
-        function validatePassword(){
-          if(password.value != confirm_password.value) {
-            confirm_password.setCustomValidity("Passwords Don't Match");
-          } else {
-            confirm_password.setCustomValidity('');
-          }
+      function validatePassword(){
+        if(password.value != confirm_password.value) {
+          confirm_password.setCustomValidity("Passwords Don't Match");
+        } else {
+          confirm_password.setCustomValidity('');
         }
-        password.onchange = validatePassword;
-        confirm_password.onkeyup = validatePassword;
-      </script>
+      }
+      password.onchange = validatePassword;
+      confirm_password.onkeyup = validatePassword;
+    </script>
 
-      <div>
-        <button type="submit">Submit</button>
-      </div>
-
-    </container>
+    <button type="submit">Submit</button>
+    <p>Have an account already?</p><a href="/login">Log In</a>
   </form>
 
-  <div>
-    <p>Have an account already?</p><span><a href="/login"><button>Log In</button></a></span>
-  </div>
+
 
 </div>

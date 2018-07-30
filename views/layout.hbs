@@ -5,20 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{{title}}</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link href="https://fonts.googleapis.com/css?family=GFS+Didot" rel="stylesheet">
   </head>
   <body>
-    <nav class="nav-bar">
+    <nav class="navbar">
       <div class="title">
-        <a href="/">My Page</a>
+        <a href="/">Portfolio</a>
       </div>
       <div class="name">
-        <a href="/users/{{username}}/"><button>{{username}}</button></a>
+        <a href="/users/{{username}}">{{username}}</a>
       </div>
-      <div class="log">
+      <div class="log click">
         {{# if currentUserId}}
-          <a href="/logout"><button>Log Out</button></a>
+          <a href="/logout">Log Out</a>
         {{else}}
-          <a href="/login"><button>Log In</button></a>
+          <a href="/login">Log In</a>
         {{/if}}
       </div>
     </nav>
@@ -27,4 +28,11 @@
       {{{body}}}
     </main>
   </body>
+
+  <footer>
+      <br></br>
+      <small>Portfolio created by Natalie Lim</small>
+      <!-- <small>© Portfolio 2018. All rights reserved.</small> -->
+  <br></br>
+</footer>
 </html>

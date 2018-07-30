@@ -1,16 +1,17 @@
 <div>
-  <h1>{{user}}</h1>
-</div>
-
-<div>
-  <a href="/users/{{user}}/posts/new"><button>+</button></a>
-</div>
-
-<div>
-  {{#each posts as |post|}}
-    <div>
-      <h3>{{post.title}}</h3>
-      <p>{{post.body}}</p>
-    </div>
-  {{/each}}
+  <div class="page">
+    <h1>{{username}}</h1>
+  </div>
+  <div class="page">
+    <a href="/users/{{username}}/posts/new">New Post</a>
+  </div>
+  <div class="posts">
+    {{#each posts as |post|}}
+      <div class="post">
+        <a href="/users/natalielim/posts/{{post.id}}"><h3>{{post.title}}</h3></a>
+        <!-- BAD FIX NEED HELP WITH THIS!!!!! -->
+        <p>{{post.body}}</p>
+      </div>
+    {{/each}}
+  </div>
 </div>

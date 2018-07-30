@@ -1,11 +1,11 @@
 /* General */
 body, button {
-  font: 14px "Times New Roman", Helvetica, Arial, sans-serif;
+  font: 14px 'GFS Didot';
 }
 
 a {
   color: black;
-  text-decoration: none;
+  /* text-decoration: none; */
 }
 
 a:hover {
@@ -13,12 +13,12 @@ a:hover {
 }
 
 input {
-  font: 14px "Times New Roman", Helvetica, Arial, sans-serif;
+  font: 14px 'GFS Didot', serif;
   margin: .5em 0;
 }
 
 button {
-  font: 14px "Times New Roman", Helvetica, Arial, sans-serif;
+  font: 14px 'GFS Didot', serif;
   margin: .5em 0;
 }
 
@@ -27,14 +27,32 @@ h1 {
   font-weight: normal;
 }
 
+/* .click {
+  border-color: black;
+  border: 1px;
+  border-radius: 5px;
+  padding: 4px;
+  margin: 4px;
+} */
+
+.page {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* Nav Bar */
-.nav-bar {
+.navbar {
   display: flex;
   flex-direction: row;
   background-color: #fff;
   height: 46px;
   align-items: center;
   padding: 0 10px;
+  position: fixed;
+  top: 0;
+  width: 98%;
 }
 
 .title {
@@ -49,6 +67,27 @@ h1 {
   margin-left: 10px;
 }
 
+/* Footer */
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+
+/* Landing Page */
+.parallax {
+    /* background: #7c7c7c; */
+    min-height: 500px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 /* New User */
 main {
   padding: 1em 2em;
@@ -59,4 +98,28 @@ form {
 }
 
 .create-account container {
+}
+
+/* User Page */
+.posts {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 2em;
+  padding: 1% 5%;
+}
+
+.post {
+  height: 300px;
+  border: 1px solid #000;
+  margin: 10px 5px 0 0;
+  padding: 10px;
+}
+
+#list {
+  width: 80%;
+}
+
+#post-body {
+  height: 100px;
+  width: 300px;
 }
