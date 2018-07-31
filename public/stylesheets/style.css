@@ -1,6 +1,6 @@
 /* General */
 body, button {
-  font: 14px 'GFS Didot';
+  font: 12px 'GFS Didot';
 }
 
 a {
@@ -31,19 +31,13 @@ ul {
   color: #fff;
   margin-left: -40px;
 }
-/* .click {
-  border-color: black;
-  border: 1px;
-  border-radius: 5px;
-  padding: 4px;
-  margin: 4px;
-} */
 
 .page {
   margin-top: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 .space {
@@ -87,8 +81,9 @@ footer {
 
 /* Landing Page */
 .parallax {
-    /* background: #7c7c7c; */
+    background: #7c7c7c;
     min-height: 500px;
+    width: 100%;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
