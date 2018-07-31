@@ -46,6 +46,9 @@ ul {
   align-items: center;
 }
 
+.space {
+  height: 100px;
+}
 /* Nav Bar */
 .navbar {
   display: flex;
@@ -145,15 +148,9 @@ form {
 
 /* Show Post */
 .show-post {
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; */
-  margin: 0 auto;
+  margin: 50px auto 0 auto;
   text-align: center;
-  height: 100%;
-  width: 40%;
+  height: 400px;
+  width: 30%;
   border: 1px solid #000;
-  margin: 10px 5px 0 0;
-  padding: 10px;
 }
