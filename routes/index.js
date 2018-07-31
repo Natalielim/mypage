@@ -55,9 +55,17 @@ router.get('/logout', (req, res, next) => {
 
 module.exports = router;
 
+// <script type='text/javascript' src='config.js'></script>
+
+// AWS IMPLEMENTATION
+
+// AWS.config.update({
+//     accessKeyId: config.accessKeyId,
+//     secretAccessKey: config.secretAccessKey
+//   });
 //
 // var s3 = new AWS.S3();
-// var filePath = "app.js";
+// var filePath = "./public/images/";
 //
 // //configuring parameters
 // var params = {
