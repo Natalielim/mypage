@@ -102,6 +102,15 @@ form {
 }
 
 /* User Page */
+.prof-pic {
+  width: 100px;
+  height: 100px;
+  border-style: solid;
+  border-width: 5px;
+  border-color: black;
+  border-radius: 50%;
+}
+
 .posts {
   display: grid;
   grid-template-columns: repeat(5, 1fr);

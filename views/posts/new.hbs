@@ -15,7 +15,7 @@
       <select id="target">
         <option value="">Select Post Type</option>
         <option value="new-text">Text</option>
-        <option value="new-img">Images</option>
+        <option value="post-img">Images</option>
       </select>
       <br></br>
 
@@ -25,7 +25,7 @@
       </div>
 
       <!-- Image Input -->
-      <div id="new-img" class="hide">
+      <div id="post-img" class="hide">
         <div class="img-file">
           <input type="file" id="fileElem" multiple accept="image/*" style="display:none" onchange="handleFiles(this.files)">
           <a href="#" id="fileSelect">Select some files</a>
@@ -55,7 +55,6 @@
               for (var i = 0; i < files.length; i++) {
                 var li = document.createElement("li");
                 list.appendChild(li);
-
                 var img = document.createElement("img");
                 img.src = window.URL.createObjectURL(files[i]);
                 img.width = 140;
@@ -64,11 +63,11 @@
                 }
                 li.appendChild(img);
                 var info = document.createElement("span");
-          //       info.innerHTML = files[i].name + ": " + files[i].size + " bytes";
                 li.appendChild(info);
               }
             }
           }
+          console.log(fileList);
           </script>
         </div>
       </div>
