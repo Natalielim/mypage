@@ -55,11 +55,6 @@ router.get('/logout', (req, res, next) => {
 
 module.exports = router;
 
-// //configuring the AWS environment
-// AWS.config.update({
-//     accessKeyId: "AKIAJLYHLY5DGOAD5VAA",
-//     secretAccessKey: "B+QU4hB5x7ICuM/wKw3nQpQHZiqqS+7g9xObXXxX"
-//   });
 //
 // var s3 = new AWS.S3();
 // var filePath = "app.js";
