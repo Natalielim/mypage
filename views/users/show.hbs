@@ -11,8 +11,7 @@
   <div class="posts">
     {{#each posts as |post|}}
       <div class="post">
-        <a href="/users/natalielim/posts/{{post.id}}"><h3>{{post.title}}</h3></a>
-        <!-- BAD FIX NEED HELP WITH THIS!!!!! -->
+        <a href="/users/{{../username}}/posts/{{post.id}}"><h3>{{post.title}}</h3></a>
         <p>{{post.body}}</p>
       </div>
     {{/each}}
