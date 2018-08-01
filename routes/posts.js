@@ -60,65 +60,65 @@ router.get('/new', auth.requireLogin, (req, res, next) => {
   });
 });
 
-// // Posts create
-// router.post('/', auth.requireLogin, (req, res, next) => {
-//   Post.findById(req.params.userId, function(err, user) {
-//     if(err) { console.error(err) };
-//
-//     let post = new Post(req.body);
-//     post.users.push(req.session.userId);
-//
-//     post.save(function(err, post) {
-//       if(err) { console.error(err) };
-//
-//       console.log("new post posting");
-//       return res.redirect(`/users/${req.session.username}`);
-//     });
-//   });
-// });
-
-// Ferdinand's Posts create
-router.post('/', auth.requireLogin, upload.single('picUrl'), (req, res) => {
+// Posts create
+router.post('/', auth.requireLogin, (req, res, next) => {
   Post.findById(req.params.userId, function(err, user) {
+    if(err) { console.error(err) };
 
-    let post = req.body;
+    let post = new Post(req.body);
     post.users.push(req.session.userId);
-    let imageArray = ['picThumb', 'picUrl', 'picSquare', 'picMobile'];
-    
-    if (req.file) {
-      client.upload(req.file.path, {}, function (err, versions, meta) {
-        if (err) {
-            return res.status(400).send({ err: err });
-        }
 
-        // Iterate through imageArray and add them to respective columns
-        for(let i = 0; i < imageArray.length; i++){
-            post[imageArray[i]] = versions[i].url;
-        }
+    post.save(function(err, post) {
+      if(err) { console.error(err) };
 
-        // TODO: originally meant to have virtual variables,
-        // Couldn't get to it
-        // post.picUrl = versions[1].url;
-
-        model.Post.create(post).then(() => {
-            req.flash('success', 'Post created');
-            res.redirect('/');
-        });
-      });
-      post.save(function(err, post) {
-        if(err) { console.error(err) };
-
-        console.log("new post posting");
-        return res.redirect(`/users/${req.session.username}`);
-      });
-    } else {
-      model.Post.create(post).then(() => {
-          req.flash('success', 'Post created, but image cannot be uploaded');
-          res.redirect('/');
-      });
-    }
+      console.log("new post posting");
+      return res.redirect(`/users/${req.session.username}`);
+    });
   });
 });
+
+// // Ferdinand's Posts create
+// router.post('/', auth.requireLogin, upload.single('picUrl'), (req, res) => {
+//   Post.findById(req.params.userId, function(err, user) {
+//
+//     let post = req.body;
+//     post.users.push(req.session.userId);
+//     let imageArray = ['picThumb', 'picUrl', 'picSquare', 'picMobile'];
+//
+//     if (req.file) {
+//       client.upload(req.file.path, {}, function (err, versions, meta) {
+//         if (err) {
+//             return res.status(400).send({ err: err });
+//         }
+//
+//         // Iterate through imageArray and add them to respective columns
+//         for(let i = 0; i < imageArray.length; i++){
+//             post[imageArray[i]] = versions[i].url;
+//         }
+//
+//         // TODO: originally meant to have virtual variables,
+//         // Couldn't get to it
+//         // post.picUrl = versions[1].url;
+//
+//         model.Post.create(post).then(() => {
+//             req.flash('success', 'Post created');
+//             res.redirect('/');
+//         });
+//       });
+//       post.save(function(err, post) {
+//         if(err) { console.error(err) };
+//
+//         console.log("new post posting");
+//         return res.redirect(`/users/${req.session.username}`);
+//       });
+//     } else {
+//       model.Post.create(post).then(() => {
+//           req.flash('success', 'Post created, but image cannot be uploaded');
+//           res.redirect('/');
+//       });
+//     }
+//   });
+// });
 
 // Posts show
 router.get('/:id', auth.requireLogin, (req, res, next) => {
