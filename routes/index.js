@@ -54,34 +54,3 @@ router.get('/logout', (req, res, next) => {
 });
 
 module.exports = router;
-
-// <script type='text/javascript' src='config.js'></script>
-
-// AWS IMPLEMENTATION
-
-// AWS.config.update({
-//     accessKeyId: config.accessKeyId,
-//     secretAccessKey: config.secretAccessKey
-//   });
-//
-// var s3 = new AWS.S3();
-// var filePath = "./public/images/";
-//
-// //configuring parameters
-// var params = {
-//   Bucket: 'mypage-webapp',
-//   Body : fs.createReadStream(filePath),
-//   Key : "folder/"+Date.now()+"_"+path.basename(filePath)
-// };
-//
-// s3.upload(params, function (err, data) {
-//   //handle error
-//   if (err) {
-//     console.log("Error", err);
-//   }
-//
-//   //success
-//   if (data) {
-//     console.log("Uploaded in:", data.Location);
-//   }
-// });
