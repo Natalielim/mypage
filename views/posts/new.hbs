@@ -2,7 +2,8 @@
   <form action="/users/{{username}}" method="post">
     <div class="new-post">
       <h1>New Post</h1>
-      <input type="text" id="post-title" placeholder="Title" name="title"><br></br>
+      <input type="text" id="post-title" placeholder="Title" name="title" size="30" required><br></br>
+      <input type="url" id="post-url" name="url" placeholder="https://example.com">
 
       <!-- Hide Method -->
       <style>

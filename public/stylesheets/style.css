@@ -1,6 +1,24 @@
 /* General */
-body, button {
+body {
   font: 14px 'GFS Didot';
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+}
+
+button {
+    border: 1px solid black;
+    color: black;
+    padding: 5px 20px;
+    text-align: center;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+button:hover {
+  background-color: black;
+  color: white;
 }
 
 a {
@@ -9,7 +27,7 @@ a {
 }
 
 a:hover {
-  color: gray;
+  color: #7c7c7c;
 }
 
 input {
@@ -44,6 +62,19 @@ ul {
 .space {
   height: 100px;
 }
+
+.form {
+    background-color:transparent;
+    border: 0px solid;
+    /* height:30px;
+    width:260px; */
+    border-bottom: 1px solid black;
+}
+
+.form :focus {
+    outline:none;
+}
+
 /* Nav Bar */
 .navbar {
   display: flex;
@@ -72,6 +103,7 @@ ul {
 
 /* Footer */
 footer {
+  /* flex-shrink: 0; */
   position: fixed;
   left: 0;
   bottom: 0;
@@ -106,10 +138,14 @@ form {
   width: 100px;
   height: 100px;
   border-style: solid;
-  border-width: 5px;
+  border-width: 1px;
   border-color: black;
-  border-radius: 50%;
+  border-radius: 60%;
   margin-bottom: -50px;
+}
+
+.prof-pic:hover {
+  background-color: black;
 }
 
 .posts {
@@ -122,8 +158,14 @@ form {
 .post {
   height: 300px;
   border: 1px solid #000;
-  margin: 10px 5px 0 0;
+  margin: 0;
   padding: 10px;
+  text-align: center;
+}
+
+.post:hover {
+  color: white;
+  background-color: black;
 }
 
 #list {
