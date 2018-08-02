@@ -34,6 +34,7 @@ router.post('/login', (req, res, next) => {
 
       return next(next_error);
     } else {
+      console.log("logging in");
       req.session.userId = user._id;
       req.session.username = user.username;
 

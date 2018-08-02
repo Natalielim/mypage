@@ -9,14 +9,10 @@
     {{#each posts as |post|}}
       <a href="/users/{{../username}}/posts/{{post.id}}">
         <div class="post">
-          <img class="pic" src={{post.picUrl}}>
-          <div class="overlay">
-            <div class="overlay-text">
-              <h1>{{post.title}}</h1>
-              <p>{{post.body}}</p>
-              <p>{{post.link}}</p>
-            </div>
-          </div>
+          <h1>{{post.title}}</h1>
+          <!-- <img class="pic" src={{post.picUrl}}> -->
+          <p>{{post.body}}</p>
+          <p>{{post.link}}</p>
         </div>
       </a>
     {{/each}}

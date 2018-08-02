@@ -5,17 +5,54 @@
       <h1>New Post</h1>
 
       <input type="text" id="post-title" placeholder="Title" name="title" size="30" required>
-      <input type="url" id="post-url" name="link" placeholder="https://example.com">
+
+      <!-- Hide Method -->
+      <style>
+        .hide {
+          display: none;
+        }
+      </style>
+
+      <!-- Select Text or Image -->
+      <select id="target">
+        <option value="">Select Post Type</option>
+        <option value="post-text">Text</option>
+        <option value="post-img">Image</option>
+        <option value="post-link">Link</option>
+      </select>
+
+      <!-- JavaScript -->
+      <script>
+        document
+        .getElementById('target')
+        .addEventListener('change', function () {
+          'use strict';
+          var vis = document.querySelector('.vis'),
+              target = document.getElementById(this.value);
+          if (vis !== null) {
+              vis.className = 'hide';
+          }
+          if (target !== null ) {
+              target.className = 'vis';
+          }
+        });
+      </script>
 
       <!-- Text Input -->
-      <div id="new-text" class="hide">
-        <input type="text" id="post-body" name="body" placeholder="Body">
+      <div id="post-text" class="hide">
+        <textarea id="post-body" name="body" rows="3" placeholder="Body..."></textarea>
       </div>
 
       <!-- Image Input -->
       <div id="post-img" class="hide">
-        <div class="img-file">
-          <input type="file" id="post-img" name="picUrl">
+        <input type="file" id="post-img" name="picUrl">
+      </div>
+
+      <!-- Link Input -->
+      <div id="post-link" class="hide">
+        <input type="url" id="post-link" name="link" placeholder="https://example.com">
+      </div>
+
           <!-- <input type="file" id="post-img" name="picUrl" multiple accept="image/*" style="display:none" onchange="handleFiles(this.files)">
           <a href="#" id="fileSelect"><button>Select some files</button></a>
 
@@ -56,8 +93,6 @@
               }
             }
           </script> -->
-        </div>
-      </div>
 
       <div class="new-buttons">
         <button type="submit">Create</button>
@@ -66,35 +101,3 @@
   </div>
   <a href="/users/{{username}}"><button>Cancel</button></a>
 </div>
-
-<!-- Hide Method -->
-<!-- <style>
-  .hide {
-    display: none;
-  }
-</style> -->
-
-<!-- Select Text or Image -->
-<!-- <select id="target">
-  <option value="">Select Post Type</option>
-  <option value="new-text">Text</option>
-  <option value="post-img">Images</option>
-</select>
-<br></br> -->
-
-<!-- JavaScript -->
-<!-- <script>
-  document
-  .getElementById('target')
-  .addEventListener('change', function () {
-    'use strict';
-    var vis = document.querySelector('.vis'),
-        target = document.getElementById(this.value);
-    if (vis !== null) {
-        vis.className = 'hide';
-    }
-    if (target !== null ) {
-        target.className = 'vis';
-    }
-  });
-</script> -->
