@@ -5,7 +5,7 @@ const PostSchema = new Schema({
   title: { type: String, required: true },
   body: { type: String, required: true },
   link: { type: String },
-  imgUrl: { type: String, required: true },
+  picUrl: { type: String, required: true },
   users: [{ type: Schema.Types.ObjectId, ref: 'User' }],
   date: { type: Date, default: Date.now }
 });

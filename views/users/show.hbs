@@ -12,11 +12,13 @@
     {{#each posts as |post|}}
       <a href="/users/{{../username}}/posts/{{post.id}}">
         <div class="post">
-          <h1>{{post.title}}</h1>
-          <p>{{post.body}}</p>
-          <p>{{post.link}}</p>
+          <img class="pic" src={{post.picUrl}}>
           <div class="overlay">
-            <div class="overlay-text"></div>
+            <div class="overlay-text">
+              <h1>{{post.title}}</h1>
+              <p>{{post.body}}</p>
+              <p>{{post.link}}</p>
+            </div>
           </div>
         </div>
       </a>

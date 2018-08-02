@@ -6,6 +6,51 @@ const User = require('../models/user');
 const Post = require('../models/post');
 const posts = require('./posts');
 
+const multer = require('multer');
+const Upload = require('s3-uploader');
+
+const storage = multer.diskStorage({
+  filename: function (req, file, cb) {
+      console.log(file)
+      let extArray = file.mimetype.split("/");
+      let ext = extArray[extArray.length - 1];
+      cb(null, Date.now() + "." + ext);
+  }
+});
+
+const upload = multer({ storage });
+
+let client = new Upload(process.env.S3_BUCKET, {
+  aws: {
+    path: 'folder/',
+    region: process.env.S3_REGION,
+    acl: 'public-read',
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
+  },
+  cleanup: {
+    original: true,
+    versions: true
+  },
+  versions: [{
+    maxWidth: 320,
+    aspect: '1.618:1',
+    suffix: '-thumbnail'
+  },{
+    maxWidth: 1000,
+    aspect: '2.414:1', //silver ratio
+    suffix: '-desktop'
+  },{
+    maxWidth: 320,
+    aspect: '2.414:1', //silver ratio
+    suffix: '-mobile'
+  },{
+    maxWidth: 100,
+    aspect: '1:1',
+    suffix: '-square'
+  }]
+});
+
 // Users create
 router.post('/', (req, res, next) => {
   const user = new User(req.body);
@@ -41,21 +86,21 @@ router.get('/:id/posts/new', auth.requireLogin, (req, res, next) => {
   });
 });
 
-// Posts create
-router.post('/:id', auth.requireLogin, (req, res, next) => {
-  Post.findById(req.params.userId, function(err, user) {
-    if(err) { console.error(err) };
-
-    let post = new Post(req.body);
-    post.users.push(req.session.userId);
-
-    post.save(function(err, post) {
-      if(err) { console.error(err) };
-      console.log("new post posting 1")
-      return res.redirect(`/users/${req.session.username}`);
-    });
-  });
-});
+// // Posts create
+// router.post('/:id', auth.requireLogin, (req, res, next) => {
+//   Post.findById(req.params.userId, function(err, user) {
+//     if(err) { console.error(err) };
+//
+//     let post = new Post(req.body);
+//     post.users.push(req.session.userId);
+//
+//     post.save(function(err, post) {
+//       if(err) { console.error(err) };
+//       console.log("new post posting 1")
+//       return res.redirect(`/users/${req.session.username}`);
+//     });
+//   });
+// });
 
 // Posts edit
 router.get('/:id/posts/:id/edit', auth.requireLogin, (req, res, next) => {
@@ -73,6 +118,36 @@ router.post('/:id/posts/:id', auth.requireLogin, (req, res, next) => {
 
     res.redirect('posts/:id');
   });
+});
+
+// Diana's Posts create
+router.post('/:id', upload.single('picUrl'), (req, res) => {
+    let post = new Post(req.body);
+    post.users.push(req.session.userId);
+
+    console.log(req.file)
+    if (req.file) {
+          client.upload(req.file.path, {}, function (err, versions, meta) {
+            if (err) {
+                console.log("Error after uploading - ", err)
+                return res.status(400).send({ err: err });
+            }
+            console.log(versions)
+            post.picUrl = versions[0].url;
+              Post.create(post).then(() => {
+                console.error("hello hello");
+                return res.redirect(`/users/${req.session.username}`);
+              }).catch((err) => {
+                console.log(err.message);
+              });
+        });
+    }
+    else{
+        Post.create(post).then(() => {
+          console.error("Post created, but image cannot be uploaded");
+          return res.redirect(`/users/${req.session.username}`);
+        });
+    }
 });
 
 // // Posts update

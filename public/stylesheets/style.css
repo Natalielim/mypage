@@ -156,12 +156,15 @@ form {
 }
 
 .post {
-  height: 300px;
   border: 1px solid #000;
   margin: 0;
   padding: 10px;
   text-align: center;
   position: relative;
+}
+
+.pic {
+  width: 220px;
 }
 
 .post:hover {
@@ -178,11 +181,11 @@ form {
   width: 30em;
 }
 
-/* .post:hover .overlay {
+.post:hover .overlay {
   height: 100%;
-} */
+}
 
-/* .overlay-text {
+.overlay-text {
   color: white;
   font-size: 12px;
   position: absolute;
@@ -191,7 +194,7 @@ form {
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   text-align: bottom;
-} */
+}
 
 /* .overlay {
   position: absolute;
@@ -212,7 +215,6 @@ form {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: red;
   height: 100%;
 }
 
@@ -221,14 +223,14 @@ form {
 }
 
 .new-buttons {
-  
+  /* TODO: adjust the button postitions */
 }
 
 /* Show Post */
 .show-post {
   margin: 50px auto 0 auto;
   text-align: center;
-  height: 400px;
+  height: 100%;
   width: 30%;
   border: 1px solid #000;
 }
