@@ -33,21 +33,9 @@ let client = new Upload(process.env.S3_BUCKET, {
     versions: true
   },
   versions: [{
-    maxWidth: 320,
-    aspect: '1.618:1',
-    suffix: '-thumbnail'
-  },{
     maxWidth: 1000,
     aspect: '2.414:1', //silver ratio
     suffix: '-desktop'
-  },{
-    maxWidth: 320,
-    aspect: '2.414:1', //silver ratio
-    suffix: '-mobile'
-  },{
-    maxWidth: 100,
-    aspect: '1:1',
-    suffix: '-square'
   }]
 });
 
