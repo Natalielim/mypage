@@ -65,6 +65,21 @@ router.get('/:id', auth.requireLogin, (req, res, next) => {
   });
 })
 
+// Users profile edit
+router.get('/edit', (req, res, next) => {
+  res.render('users/edit');
+})
+
+router.post('/edit', (req, res, next) => {
+  const user = new User(req.body);
+
+  user.save(function(err, user) {
+    if(err) console.log(err);
+    return res.redirect('/');
+  });
+})
+
+
 // Posts new
 router.get('/:id/posts/new', auth.requireLogin, (req, res, next) => {
   User.findById(req.params.userId, function(err, user) {

@@ -1,16 +1,16 @@
-<div>
+<div class="flow">
   <div class="page">
     <h1>{{username}}</h1>
   </div>
   <div class="page">
-    <a href="/users/{{username}}/posts/new"><button>New Post</button></a>
+    <a href="/users/{{username}}/posts/new"><button class="new-button">New Post</button></a>
   </div>
   <div class="posts">
     {{#each posts as |post|}}
       <a href="/users/{{../username}}/posts/{{post.id}}">
         <div class="post">
           <h1>{{post.title}}</h1>
-          <!-- <img class="pic" src={{post.picUrl}}> -->
+          <img class="pic" src={{post.picUrl}}>
           <p>{{post.body}}</p>
           <p>{{post.link}}</p>
         </div>

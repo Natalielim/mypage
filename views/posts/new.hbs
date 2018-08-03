@@ -1,103 +1,101 @@
 <div class="page">
     <form action="/users/{{username}}" method="post" enctype="multipart/form-data">
       <div class="new-post">
+        <h1>New Post</h1>
 
-      <h1>New Post</h1>
+        <input type="text" id="post-title" placeholder="Title" name="title" size="30" required>
 
-      <input type="text" id="post-title" placeholder="Title" name="title" size="30" required>
-
-      <!-- Hide Method -->
-      <style>
-        .hide {
-          display: none;
-        }
-      </style>
-
-      <!-- Select Text or Image -->
-      <select id="target">
-        <option value="">Select Post Type</option>
-        <option value="post-text">Text</option>
-        <option value="post-img">Image</option>
-        <option value="post-link">Link</option>
-      </select>
-
-      <!-- JavaScript -->
-      <script>
-        document
-        .getElementById('target')
-        .addEventListener('change', function () {
-          'use strict';
-          var vis = document.querySelector('.vis'),
-              target = document.getElementById(this.value);
-          if (vis !== null) {
-              vis.className = 'hide';
+        <!-- Hide Method -->
+        <style>
+          .hide {
+            display: none;
           }
-          if (target !== null ) {
-              target.className = 'vis';
-          }
-        });
-      </script>
+        </style>
 
-      <!-- Text Input -->
-      <div id="post-text" class="hide">
-        <textarea id="post-body" name="body" rows="3" placeholder="Body..."></textarea>
-      </div>
+        <!-- Select Text or Image -->
+        <select id="target">
+          <option value="">Select Post Type</option>
+          <option value="post-text">Text</option>
+          <option value="post-img">Image</option>
+          <option value="post-link">Link</option>
+        </select>
 
-      <!-- Image Input -->
-      <div id="post-img" class="hide">
-        <input type="file" id="post-img" name="picUrl">
-      </div>
-
-      <!-- Link Input -->
-      <div id="post-link" class="hide">
-        <input type="url" id="post-link" name="link" placeholder="https://example.com">
-      </div>
-
-          <!-- <input type="file" id="post-img" name="picUrl" multiple accept="image/*" style="display:none" onchange="handleFiles(this.files)">
-          <a href="#" id="fileSelect"><button>Select some files</button></a>
-
-          <div id="fileList"><p>No files selected!</p></div>
-          <script>
-            window.URL = window.URL || window.webkitURL;
-            var fileSelect = document.getElementById("fileSelect"),
-                fileElem = document.getElementById("fileElem"),
-                fileList = document.getElementById("fileList");
-
-            fileSelect.addEventListener("click", function (e) {
-              if (fileElem) {
-                fileElem.click();
-              }
-              e.preventDefault(); // prevent navigation to "#"
-            }, false);
-
-            function handleFiles(files) {
-              if (!files.length) {
-                fileList.innerHTML = "<p>No files selected!</p>";
-              } else {
-                fileList.innerHTML = "";
-                var list = document.createElement("ul");
-                fileList.appendChild(list);
-                for (var i = 0; i < files.length; i++) {
-                  var li = document.createElement("li");
-                  list.appendChild(li);
-                  var img = document.createElement("img");
-                  img.src = window.URL.createObjectURL(files[i]);
-                  img.width = 140;
-                  img.onload = function() {
-                    window.URL.revokeObjectURL(this.src);
-                  }
-                  li.appendChild(img);
-                  var info = document.createElement("span");
-                  li.appendChild(info);
-                }
-              }
+        <!-- JavaScript -->
+        <script>
+          document
+          .getElementById('target')
+          .addEventListener('change', function () {
+            'use strict';
+            var vis = document.querySelector('.vis'),
+                target = document.getElementById(this.value);
+            if (vis !== null) {
+                vis.className = 'hide';
             }
-          </script> -->
+            if (target !== null ) {
+                target.className = 'vis';
+            }
+          });
+        </script>
 
+        <!-- Text Input -->
+        <div id="post-text" class="hide">
+          <textarea id="post-body" name="body" rows="3" placeholder="Body..."></textarea>
+        </div>
+
+        <!-- Image Input -->
+        <div id="post-img" class="hide">
+          <input type="file" id="post-img" name="picUrl">
+        </div>
+
+        <!-- Link Input -->
+        <div id="post-link" class="hide">
+          <input type="url" id="post-link" name="link" placeholder="https://example.com">
+        </div>
+
+            <!-- <input type="file" id="post-img" name="picUrl" multiple accept="image/*" style="display:none" onchange="handleFiles(this.files)">
+            <a href="#" id="fileSelect"><button>Select some files</button></a>
+
+            <div id="fileList"><p>No files selected!</p></div>
+            <script>
+              window.URL = window.URL || window.webkitURL;
+              var fileSelect = document.getElementById("fileSelect"),
+                  fileElem = document.getElementById("fileElem"),
+                  fileList = document.getElementById("fileList");
+
+              fileSelect.addEventListener("click", function (e) {
+                if (fileElem) {
+                  fileElem.click();
+                }
+                e.preventDefault(); // prevent navigation to "#"
+              }, false);
+
+              function handleFiles(files) {
+                if (!files.length) {
+                  fileList.innerHTML = "<p>No files selected!</p>";
+                } else {
+                  fileList.innerHTML = "";
+                  var list = document.createElement("ul");
+                  fileList.appendChild(list);
+                  for (var i = 0; i < files.length; i++) {
+                    var li = document.createElement("li");
+                    list.appendChild(li);
+                    var img = document.createElement("img");
+                    img.src = window.URL.createObjectURL(files[i]);
+                    img.width = 140;
+                    img.onload = function() {
+                      window.URL.revokeObjectURL(this.src);
+                    }
+                    li.appendChild(img);
+                    var info = document.createElement("span");
+                    li.appendChild(info);
+                  }
+                }
+              }
+            </script> -->
       <div class="new-buttons">
         <button type="submit">Create</button>
       </div>
-    </form>
-  </div>
+    </div>
+  </form>
   <a href="/users/{{username}}"><button>Cancel</button></a>
 </div>
