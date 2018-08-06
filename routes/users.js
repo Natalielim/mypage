@@ -79,7 +79,6 @@ router.post('/edit', (req, res, next) => {
   });
 })
 
-
 // Posts new
 router.get('/:id/posts/new', auth.requireLogin, (req, res, next) => {
   User.findById(req.params.userId, function(err, user) {
@@ -88,22 +87,6 @@ router.get('/:id/posts/new', auth.requireLogin, (req, res, next) => {
     res.render('posts/new', { username: req.session.username });
   });
 });
-
-// // Posts create
-// router.post('/:id', auth.requireLogin, (req, res, next) => {
-//   Post.findById(req.params.userId, function(err, user) {
-//     if(err) { console.error(err) };
-//
-//     let post = new Post(req.body);
-//     post.users.push(req.session.userId);
-//
-//     post.save(function(err, post) {
-//       if(err) { console.error(err) };
-//       console.log("new post posting 1")
-//       return res.redirect(`/users/${req.session.username}`);
-//     });
-//   });
-// });
 
 // Posts edit
 router.get('/:id/posts/:id/edit', auth.requireLogin, (req, res, next) => {
@@ -123,7 +106,7 @@ router.post('/:id/posts/:id', auth.requireLogin, (req, res, next) => {
   });
 });
 
-// Diana's Posts create
+// Posts create
 router.post('/:id', upload.single('picUrl'), (req, res) => {
     let post = new Post(req.body);
     post.users.push(req.session.userId);
@@ -153,14 +136,5 @@ router.post('/:id', upload.single('picUrl'), (req, res) => {
     }
 });
 
-// // Posts update
-// router.delete('/:id', auth.requireLogin, (req, res, next) => {
-//   Post.findByIdAndRemove(req.body.delete_id, function(err, post) {
-//     if (err) { console.error(err); }
-//     res.redirect('/posts/'+post._id);
-//   });
-// });
-
 router.use('/:userId/posts', posts);
-
 module.exports = router;

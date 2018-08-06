@@ -180,8 +180,11 @@ form {
 }
 
 .post:hover {
-  color: white;
-  background-color: black;
+  /* color: white;
+  background-color: black; */
+  transition: transform .2s;
+  transform: scale(1.02);
+  border-color: #7c7c7c;
 }
 
 #list {
