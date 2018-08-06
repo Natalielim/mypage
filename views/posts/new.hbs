@@ -3,53 +3,56 @@
       <div class="new-post">
         <h1>New Post</h1>
 
-        <input type="text" id="post-title" placeholder="Title" name="title" size="30" required>
+        <input type="text" id="post-title" class="form" placeholder="Title" name="title" size="30" required>
+        <!-- <input type="date" id="date" class="form" name="date"</input> -->
 
-        <!-- Hide Method -->
-        <style>
-          .hide {
-            display: none;
-          }
-        </style>
-
-        <!-- Select Text or Image -->
-        <select id="target">
-          <option value="">Select Post Type</option>
-          <option value="post-text">Text</option>
-          <option value="post-img">Image</option>
-          <option value="post-link">Link</option>
-        </select>
+        <div class="select">
+          <button id='btn-file' class='select-btn' type="button" onclick="myFunction('file')">File</button>
+          <button id='btn-img' class='select-btn' type="button" onclick="myFunction('img')">Image</button>
+          <button id='btn-link' class='select-btn' type="button" onclick="myFunction('link')">Link</button>
+          <button id='btn-text' class='select-btn' type="button" onclick="myFunction('text')">Text</button>
+        </div>
 
         <!-- JavaScript -->
         <script>
-          document
-          .getElementById('target')
-          .addEventListener('change', function () {
-            'use strict';
-            var vis = document.querySelector('.vis'),
-                target = document.getElementById(this.value);
-            if (vis !== null) {
-                vis.className = 'hide';
-            }
-            if (target !== null ) {
-                target.className = 'vis';
-            }
-          });
+          function myFunction(i) {
+            const inputs = document.querySelectorAll('.post-fn');
+            const buttons = document.querySelectorAll('.select-btn');
+
+            inputs.forEach(input => {
+              input.classList.remove('active')
+            })
+
+            buttons.forEach(button => {
+              button.classList.remove('active')
+            })
+
+            const targetInput = document.getElementById(`post-${i}`)
+            const targetBtn = document.getElementById(`btn-${i}`)
+
+            targetInput.classList.add('active');
+            targetBtn.classList.add('active');
+          }
         </script>
 
+        <!-- File Input -->
+        <div id="post-file" class='post-fn'>
+          <input type="file" id="post-file" name="picUrl">
+        </div>
+
         <!-- Text Input -->
-        <div id="post-text" class="hide">
-          <textarea id="post-body" name="body" rows="3" placeholder="Body..."></textarea>
+        <div id="post-text" class='post-fn'>
+          <textarea id="post-body" name="body" rows="3" placeholder="Write or paste in some text..."></textarea>
         </div>
 
         <!-- Image Input -->
-        <div id="post-img" class="hide">
+        <div id="post-img" class='post-fn'>
           <input type="file" id="post-img" name="picUrl">
         </div>
 
         <!-- Link Input -->
-        <div id="post-link" class="hide">
-          <input type="url" id="post-link" name="link" placeholder="https://example.com">
+        <div id="post-link" class='post-fn'>
+          <input type="url" id="post-link" class="form" name="link" placeholder="https://example.com">
         </div>
 
             <!-- <input type="file" id="post-img" name="picUrl" multiple accept="image/*" style="display:none" onchange="handleFiles(this.files)">

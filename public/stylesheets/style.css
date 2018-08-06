@@ -156,8 +156,9 @@ form {
 .posts {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 1fr) ;
   grid-gap: 3em;
+  grid-auto-flow: row dense;
   /* display: flex; */
   /* flex-wrap: wrap; */
   /* grid-template-rows: repeat(4, 1fr); */
@@ -190,6 +191,11 @@ form {
 #post-body {
   height: 100px;
   width: 30em;
+}
+
+#post-img, #post-file {
+  border: none;
+  align-items: center;
 }
 
 .post:hover .overlay {
@@ -241,9 +247,29 @@ form {
   /* TODO: adjust the button postitions */
 }
 
+.select {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.post-fn {
+  display: none
+}
+.post-fn.active{
+  display: block;
+}
+
+.select-btn.active{
+  background-color: black;
+  color: white;
+}
+
 /* Show Post */
 .show-post {
   margin: 50px auto 0 auto;
+  padding: 20px;
   text-align: center;
   height: 50%;
   width: 50%;
