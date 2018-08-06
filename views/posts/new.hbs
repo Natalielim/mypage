@@ -4,10 +4,9 @@
         <h1>New Post</h1>
 
         <input type="text" id="post-title" class="form" placeholder="Title" name="title" size="30" required>
-        <!-- <input type="date" id="date" class="form" name="date"</input> -->
 
         <div class="select">
-          <button id='btn-file' class='select-btn' type="button" onclick="myFunction('file')">File</button>
+          <!-- <button id='btn-file' class='select-btn' type="button" onclick="myFunction('file')">File</button> -->
           <button id='btn-img' class='select-btn' type="button" onclick="myFunction('img')">Image</button>
           <button id='btn-link' class='select-btn' type="button" onclick="myFunction('link')">Link</button>
           <button id='btn-text' class='select-btn' type="button" onclick="myFunction('text')">Text</button>
@@ -36,9 +35,9 @@
         </script>
 
         <!-- File Input -->
-        <div id="post-file" class='post-fn'>
-          <input type="file" id="post-file" name="picUrl">
-        </div>
+        <!-- <div id="post-file" class='post-fn'>
+          <input type="file" id="post-file" name="file">
+        </div> -->
 
         <!-- Text Input -->
         <div id="post-text" class='post-fn'>
@@ -47,7 +46,7 @@
 
         <!-- Image Input -->
         <div id="post-img" class='post-fn'>
-          <button><input type='file' id="post-img" name="picUrl"></input></button>
+          <input type='file' id="post-img" name="picUrl"></input>
         </div>
 
         <!-- Link Input -->

@@ -127,8 +127,7 @@ router.post('/:id', upload.single('picUrl'), (req, res) => {
                 console.log(err.message);
               });
         });
-    }
-    else{
+    } else {
         Post.create(post).then(() => {
           console.error("Post created, but image cannot be uploaded");
           return res.redirect(`/users/${req.session.username}`);
