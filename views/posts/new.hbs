@@ -4,6 +4,7 @@
         <h1>New Post</h1>
 
         <input type="text" id="post-title" class="form" placeholder="Title" name="title" size="30" required>
+        <input type="text" id="post-description" class="form" placeholder="Short Description" name="description" size="30" required>
 
         <div class="select">
           <!-- <button id='btn-file' class='select-btn' type="button" onclick="myFunction('file')">File</button> -->
@@ -39,11 +40,6 @@
           <input type="file" id="post-file" name="file">
         </div> -->
 
-        <!-- Text Input -->
-        <div id="post-text" class='post-fn'>
-          <textarea id="post-body" name="body" rows="3" placeholder="Write or paste in some text..."></textarea>
-        </div>
-
         <!-- Image Input -->
         <div id="post-img" class='post-fn'>
           <input type='file' id="post-img" name="picUrl"></input>
@@ -52,6 +48,11 @@
         <!-- Link Input -->
         <div id="post-link" class='post-fn'>
           <input type="url" id="post-link" class="form" name="link" placeholder="https://example.com">
+        </div>
+
+        <!-- Text Input -->
+        <div id="post-text" class='post-fn'>
+          <textarea id="post-body" name="body" rows="3" placeholder="Write or paste in some text..."></textarea>
         </div>
 
       <div class="new-buttons">

@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 const PostSchema = new Schema({
   title: { type: String, required: true },
+  description: { type: String, required: true },
   body: { type: String },
   link: { type: String },
   picUrl: { type: String },

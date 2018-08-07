@@ -24,10 +24,14 @@ button:hover {
   color: white;
 }
 
+button:focus {
+  outline: none;
+}
+
 a {
   color: black;
   cursor: pointer;
-  text-decoration: none;
+  text-decoration: none!important;
 }
 
 a:hover {
@@ -108,15 +112,13 @@ ul {
 
 .title {
   margin-right: auto;
-  /* font-size: 24px; */
   text-decoration: none;
   font-weight: bold;
 }
 
 .log {
   color: black;
-  margin-left: 10px;
-  margin-right: 15px;
+  margin-right:-30px;
 }
 
 /* Footer */
@@ -124,7 +126,6 @@ footer {
   absolute: 0;
   bottom: 0;
   width: 100%;
-  margin-left: -10px;
   margin-bottom: -10px;
   border: 10px solid black;
   background-color: black;
@@ -169,17 +170,27 @@ form {
 }
 
 .pic {
-  height: auto;
+  width: 100%;
 }
 
-.post:hover {
+.card:hover {
   transition: transform .2s;
-  transform: scale(1.02);
+  transform: scale(1.01);
   border-color: #7c7c7c;
 }
 
 .post h1 {
   font-weight: bold;
+}
+
+.card {
+  border-radius: 0!important;
+  border-color: black;
+  padding: 1em;
+}
+
+textarea {
+  resize: none;
 }
 
 #list {
@@ -275,7 +286,7 @@ form {
 }
 
 .show-pic {
-  width: 50%;
+  width: 80%;
 }
 
 /* Edit Post */
@@ -299,5 +310,14 @@ form {
 @media (max-width: 1135x) {
   .posts {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.card-columns {
+  @include media-breakpoint-only(lg) {
+    column-count: 4;
+  }
+  @include media-breakpoint-only(xl) {
+    column-count: 5;
   }
 }
