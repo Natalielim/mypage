@@ -148,7 +148,6 @@ form {
   border-radius: 0!important;
   border-color: black;
   padding: 1em;
-  width: 30%;
 }
 
 textarea {
@@ -227,7 +226,7 @@ textarea {
 }
 
 /* Media Queries */
-@media (min-width: @screen-sm-min) {
+/* @media (min-width: @screen-sm-min) {
   .card-columns {
     column-count: 2;
   }
@@ -243,4 +242,4 @@ textarea {
   .card-columns {
     column-count: 4;
   }
-}
+} */

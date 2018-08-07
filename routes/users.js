@@ -42,7 +42,7 @@ router.post('/', (req, res, next) => {
 
   user.save(function(err, user) {
     if(err) console.log(err);
-    return res.redirect('/');
+    return res.redirect('/login');
   });
 })
 
@@ -63,18 +63,31 @@ router.get('/:id', auth.requireLogin, (req, res, next) => {
 })
 
 // Users profile edit
-router.get('/edit', (req, res, next) => {
+router.get('/:id/edit', (req, res, next) => {
   res.render('users/edit');
 })
 
-router.post('/edit', (req, res, next) => {
-  const user = new User(req.body);
-
-  user.save(function(err, user) {
-    if(err) console.log(err);
-    return res.redirect('/');
-  });
-})
+// Users show Profile
+router.post('/:id', upload.single('profile'), (req, res) => {
+    let post = new Post(req.body);
+    if (req.file) {
+          client.upload(req.file.path, {}, function (err, versions, meta) {
+            if (err) {
+                return res.status(400).send({ err: err });
+            }
+            post.profile = versions[0].url;
+              // Post.create(post).then(() => {
+              //   return res.redirect(`/users/${req.session.username}`);
+              // }).catch((err) => {
+              //   console.log(err.message);
+              // });
+        });
+    } else {
+        Post.create(post).then(() => {
+          return res.redirect(`/users/${req.session.username}`);
+        });
+    }
+});
 
 // Posts new
 router.get('/:id/posts/new', auth.requireLogin, (req, res, next) => {
@@ -108,17 +121,14 @@ router.post('/:id', upload.single('picUrl'), (req, res) => {
     let post = new Post(req.body);
     post.users.push(req.session.userId);
 
-    console.log(req.file)
     if (req.file) {
           client.upload(req.file.path, {}, function (err, versions, meta) {
             if (err) {
-                console.log("Error after uploading - ", err)
                 return res.status(400).send({ err: err });
             }
             console.log(versions)
             post.picUrl = versions[0].url;
               Post.create(post).then(() => {
-                console.error("hello hello");
                 return res.redirect(`/users/${req.session.username}`);
               }).catch((err) => {
                 console.log(err.message);
@@ -126,7 +136,6 @@ router.post('/:id', upload.single('picUrl'), (req, res) => {
         });
     } else {
         Post.create(post).then(() => {
-          console.error("Post created, but image cannot be uploaded");
           return res.redirect(`/users/${req.session.username}`);
         });
     }
