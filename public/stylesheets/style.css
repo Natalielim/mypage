@@ -69,10 +69,6 @@ ul {
   flex-direction: column;
 }
 
-.space {
-  height: 100px;
-}
-
 .form {
   background-color:transparent;
   border: 0px solid;
@@ -81,19 +77,6 @@ ul {
 
 .form:focus {
   outline:none;
-}
-
-/* Home Page */
-.box {
-  height: 295px;
-}
-
-.create-box {
-  height: 110px;
-}
-
-.login-box {
-  height: 150px;
 }
 
 /* Nav Bar */
@@ -124,13 +107,11 @@ ul {
 /* Footer */
 footer {
   absolute: 0;
-  bottom: 0;
   width: 100%;
-  margin-bottom: -10px;
+  text-align: center;
   border: 10px solid black;
   background-color: black;
   color: white;
-  text-align: center;
 }
 
 /* Landing Page */
@@ -154,21 +135,6 @@ form {
 }
 
 /* User Page */
-.posts {
-  display: flex;
-  -ms-flex: 25%;
-  flex: 25%;
-  padding: 0 4px;
-}
-
-.post {
-  width: 100%;
-  border: 1px solid #000;
-  text-align: center;
-  margin-top: 2em;
-  position: relative;
-}
-
 .pic {
   width: 100%;
 }
@@ -177,10 +143,6 @@ form {
   transition: transform .2s;
   transform: scale(1.01);
   border-color: #7c7c7c;
-}
-
-.post h1 {
-  font-weight: bold;
 }
 
 .card {
@@ -246,14 +208,11 @@ textarea {
   align-items: center;
   justify-content: center;
   height: 100%;
+  padding: 20px;
 }
 
 .new-post input {
   width: 30em;
-}
-
-.new-buttons {
-  /* TODO: adjust the button postitions */
 }
 
 .select {
@@ -301,23 +260,20 @@ textarea {
 }
 
 /* Media Queries */
-@media (max-width: 795px) {
-  .posts {
-    grid-template-columns: repeat(3, 1fr);
+@media (min-width: @screen-sm-min) {
+  .card-columns {
+    column-count: 2;
   }
 }
 
-@media (max-width: 1135x) {
-  .posts {
-    grid-template-columns: repeat(2, 1fr);
+@media (min-width: @screen-md-min) {
+  .card-columns {
+    column-count: 3;
   }
 }
 
-.card-columns {
-  @include media-breakpoint-only(lg) {
+@media (min-width: @screen-lg-min) {
+  .card-columns {
     column-count: 4;
-  }
-  @include media-breakpoint-only(xl) {
-    column-count: 5;
   }
 }
