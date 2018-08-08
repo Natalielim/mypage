@@ -214,6 +214,11 @@ textarea {
   left: 30px;
 }
 
+.delete-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+}
 /* Edit Profile */
 .edit-profile {
   width: 100%;

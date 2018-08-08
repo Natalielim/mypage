@@ -4,11 +4,10 @@
   <p style="white-space: pre">{{post.body}}</p>
   <img class="show-pic" src={{post.picUrl}}>
   <a href="{{post.link}}" target="_blank" style="font-weight:bold"><p>{{post.link}}</p></a>
-
-   <form method="POST" action="/users/{{username}}/posts/{{post._id}}?_method=DELETE">
-     <button type="submit" Onclick="return confirm('Are you sure you want to delete this post?');">Delete</button>
-   </form>
 </div>
 
-</div>
+  <form method="POST" action="/users/{{username}}/posts/{{post._id}}?_method=DELETE">
+    <button class="delete-btn" type="submit" Onclick="return confirm('Are you sure you want to delete this post?');">Delete Post</button>
+  </form>
+
 <a href="/users/{{username}}" class="back-btn"><button>< Back</button></a>
