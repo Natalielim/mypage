@@ -67,27 +67,27 @@ router.get('/:id/edit', (req, res, next) => {
   res.render('users/edit');
 })
 
-// Users show Profile
-router.post('/:id', upload.single('profile'), (req, res) => {
-    let user = new User(req.body);
-    if (req.file) {
-      client.upload(req.file.path, {}, function (err, versions, meta) {
-        if (err) {
-            return res.status(400).send({ err: err });
-        }
-        User.profile = versions[0].url;
-      });
-    }
-
-    user.save(function(err, user) {
-      if(err) console.log(err);
-      return res.redirect('/:id');
-    });
-    // } else {
-    //     User.create(post).then(() => {
-    //       return res.redirect(`/users/${req.session.username}`);
-    //     });
-});
+// // Users show Profile
+// router.post('/:id', upload.single('profile'), (req, res) => {
+//     let user = new User(req.body);
+//     if (req.file) {
+//       client.upload(req.file.path, {}, function (err, versions, meta) {
+//         if (err) {
+//             return res.status(400).send({ err: err });
+//         }
+//         User.profile = versions[0].url;
+//       });
+//     }
+//
+//     user.save(function(err, user) {
+//       if(err) console.log(err);
+//       return res.redirect('/:id');
+//     });
+//     // } else {
+//     //     User.create(post).then(() => {
+//     //       return res.redirect(`/users/${req.session.username}`);
+//     //     });
+// });
 
 // Posts new
 router.get('/:id/posts/new', auth.requireLogin, (req, res, next) => {
