@@ -1,14 +1,18 @@
 <div class="page">
   <form action="/users" method="post">
-    <!-- Image Input -->
-    <div id="prof-img">
-      <input type='file' name="profile"></input>
-    </div>
+    <div class="edit-profile">
+      <h1>Edit Profile</h1>
 
-    <!-- Text Input -->
-    <div id="prof-text">
-        <textarea name="body" rows='3' placeholder="Write a short bio..."></textarea>
+      <div id="prof-img">
+        <input type='file' name="profile" style="border:none;"></input>
+      </div>
+
+      <div id="prof-text">
+          <textarea name="body" rows='3' placeholder="Write a short bio..." style="width: 30em;"></textarea>
+      </div>
+      <button type="submit">Update Profile</button>
     </div>
-    <button type="submit">Update Profile</button>
   </form>
 </div>
+
+<a href="/users/{{username}}" class="back-btn"><button>< Back</button></a>

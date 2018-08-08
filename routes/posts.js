@@ -102,14 +102,6 @@ router.post('/:id', auth.requireLogin, (req, res, next) => {
   });
 });
 
-// Posts delete
-router.delete('/', auth.requireLogin, (req, res, next) => {
-  Post.findByIdAndRemove(req.params.id, function(err, post) {
-    if (err) { console.error(err); }
-    res.redirect('/');
-  });
-});
-
 module.exports = router;
 
 // AWS IMPLEMENTATION

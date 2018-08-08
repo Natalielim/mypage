@@ -1,8 +1,9 @@
 <div class="flow">
   <div class="page">
-    <!-- <img src="../images/profile.png" style="height: 100px; border-radius: 50px;"><br></br> -->
+    <!-- <img style="height: 100px; border-radius: 50px;" src={{user.profile}}><br></br> -->
     <a href="/users/{{username}}"><h1>{{username}}</h1></a><br></br>
     {{# if currentUserId}}
+      <!-- <a href="/users/{{username}}/edit"><button>Edit Profile</button></a> -->
       <a href="/users/{{username}}/posts/new"><button class="new-button">New Post</button></a>
     {{/if}}
   </div>

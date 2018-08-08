@@ -57,7 +57,7 @@ router.get('/:id', auth.requireLogin, (req, res, next) => {
     if(err) {
       console.error(err);
     } else {
-      res.render('users/show', { user: req.session.username, posts: posts});
+      res.render('users/show', { username: req.session.username, user: req.session.userId, posts: posts});
     }
   });
 })
@@ -67,22 +67,27 @@ router.get('/:id/edit', (req, res, next) => {
   res.render('users/edit');
 })
 
-// // Users show Profile
-// router.post('/:id', upload.single('profile'), (req, res) => {
-//     let post = new Post(req.body);
-//     if (req.file) {
-//           client.upload(req.file.path, {}, function (err, versions, meta) {
-//             if (err) {
-//                 return res.status(400).send({ err: err });
-//             }
-//             post.profile = versions[0].url;
-//         });
-//     } else {
-//         Post.create(post).then(() => {
-//           return res.redirect(`/users/${req.session.username}`);
-//         });
-//     }
-// });
+// Users show Profile
+router.post('/:id', upload.single('profile'), (req, res) => {
+    let user = new User(req.body);
+    if (req.file) {
+      client.upload(req.file.path, {}, function (err, versions, meta) {
+        if (err) {
+            return res.status(400).send({ err: err });
+        }
+        User.profile = versions[0].url;
+      });
+    }
+
+    user.save(function(err, user) {
+      if(err) console.log(err);
+      return res.redirect('/:id');
+    });
+    // } else {
+    //     User.create(post).then(() => {
+    //       return res.redirect(`/users/${req.session.username}`);
+    //     });
+});
 
 // Posts new
 router.get('/:id/posts/new', auth.requireLogin, (req, res, next) => {
@@ -90,24 +95,6 @@ router.get('/:id/posts/new', auth.requireLogin, (req, res, next) => {
     if(err) { console.error(err) };
     console.log("new post loading");
     res.render('posts/new', { username: req.session.username });
-  });
-});
-
-// Posts edit
-router.get('/:id/posts/:id/edit', auth.requireLogin, (req, res, next) => {
-  Post.findById(req.params.id, function(err, post) {
-    if (err) { console.error(err); }
-
-    res.render('posts/edit', { post: post });
-  });
-});
-
-// Posts update
-router.post('/:id/posts/:id', auth.requireLogin, (req, res, next) => {
-  Post.findByIdAndUpdate(req.params.id, req.body, function(err, post) {
-    if(err) { console.error(err) };
-
-    res.redirect('posts/:id');
   });
 });
 
@@ -135,6 +122,17 @@ router.post('/:id', upload.single('picUrl'), (req, res) => {
         });
     }
 });
+
+// Delete Posts
+router.delete('/:id/posts/:id', auth.requireLogin, (req, res, next) => {
+  Post.findByIdAndDelete(req.params.id).then(() => {
+    return res.redirect('/:id');
+  }).catch((err) => {
+    console.log(err.message);
+  });
+
+  console.log(req.params.id);
+})
 
 router.use('/:userId/posts', posts);
 module.exports = router;
