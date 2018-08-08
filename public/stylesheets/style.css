@@ -114,17 +114,6 @@ footer {
   color: white;
 }
 
-/* Landing Page */
-.parallax {
-    background: #7c7c7c;
-    min-height: 500px;
-    width: 100%;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
 /* New User */
 main {
   padding: 1em 2em;
