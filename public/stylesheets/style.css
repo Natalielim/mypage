@@ -79,6 +79,18 @@ ul {
   outline:none;
 }
 
+/* Landing Page */
+.index {
+  height: 400px;
+  background-color: red;
+  width: 100%;
+}
+
+.section {
+    padding: 60px 0 40px;
+}
+
+
 /* Nav Bar */
 .navbar {
   display: flex;

@@ -13,6 +13,10 @@
       <div class="title">
         <a href="/">Portfolio</a>
       </div>
+      {{# if currentUserId}}
+      {{else}}
+        <a href="#about">About</a>
+      {{/if}}
       <div class="name">
         <a href="/users/{{username}}">{{username}}</a>
       </div>
