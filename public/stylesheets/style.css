@@ -1,17 +1,18 @@
 /* General */
 body {
-  font: 14px 'GFS Didot';
+  font: 14px "HelveticaNeue-Light";
   display: flex;
   flex-direction: column;
   flex: 1 0 auto;
+  margin: 0;
 }
 
 button {
-  border: 1px solid black;
-  font: 14px 'GFS Didot', serif;
+  border: 1px solid #191919;
+  font: 14px "HelveticaNeue-Light", serif;
   margin: .5em .5em;
   outline: none;
-  color: black;
+  color: #191919;
   background-color: transparent;
   padding: 5px 20px;
   text-align: center;
@@ -20,7 +21,7 @@ button {
 }
 
 button:hover {
-  background-color: black;
+  background-color: #191919;
   color: white;
 }
 
@@ -29,7 +30,7 @@ button:focus {
 }
 
 a {
-  color: black;
+  color: #191919;
   cursor: pointer;
   text-decoration: none!important;
 }
@@ -39,16 +40,16 @@ a:hover {
 }
 
 input, textarea {
-  color: black;
-  font: 14px 'GFS Didot', serif;
+  color: #191919;
+  font: 14px "HelveticaNeue-Light", serif;
   margin: .5em 0;
-  border: 1px solid black;
+  border: 1px solid #191919;
   outline: none;
   padding: 5px 10px;
 }
 
 ::placeholder {
-    color: black;
+    color: #191919;
 }
 
 h1 {
@@ -62,7 +63,7 @@ ul {
 }
 
 .page {
-  margin-top: 50px;
+  margin-top: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -72,7 +73,7 @@ ul {
 .form {
   background-color:transparent;
   border: 0px solid;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #191919;
 }
 
 .form:focus {
@@ -80,28 +81,42 @@ ul {
 }
 
 /* Landing Page */
-.index {
+header {
+  margin-top: 35px;
+  padding: 12em 0 10em 0;
   height: 400px;
-  background-color: red;
   width: 100%;
+  display: inline-block;
+  background-image: url("../images/pen_paper_hires.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
 .section {
-    padding: 60px 0 40px;
+  padding: 60px 0 40px 0;
+  margin: 2em 0;
 }
 
+.first-section {
+  background-color: #4aa;
+}
+
+.second-section {
+  background-color: #a44;
+}
 
 /* Nav Bar */
 .navbar {
   display: flex;
   flex-direction: row;
   background-color: #fff;
-  height: 46px;
+  height: 45px;
   align-items: center;
   padding: 0 10px;
   position: fixed;
   top: 0;
-  width: 98%;
+  width: 100%;
   z-index: 1;
 }
 
@@ -112,8 +127,7 @@ ul {
 }
 
 .log {
-  color: black;
-  margin-right:-30px;
+  color: #191919;
 }
 
 /* Footer */
@@ -121,8 +135,8 @@ footer {
   absolute: 0;
   width: 100%;
   text-align: center;
-  border: 10px solid black;
-  background-color: black;
+  border: 10px solid #191919;
+  background-color: #191919;
   color: white;
 }
 
@@ -136,6 +150,9 @@ form {
 }
 
 /* User Page */
+.flow {
+}
+
 .pic {
   width: 100%;
 }
@@ -146,8 +163,9 @@ form {
 }
 
 .card {
+  background-color: white;
   border-radius: 0!important;
-  border-color: black;
+  border-color: #191919;
   padding: 1em;
 }
 
@@ -199,7 +217,7 @@ textarea {
 }
 
 .select-btn.active{
-  background-color: black;
+  background-color: #191919;
   color: white;
 }
 
@@ -243,20 +261,8 @@ textarea {
 }
 
 /* Media Queries */
-/* @media (min-width: @screen-sm-min) {
-  .card-columns {
-    column-count: 2;
-  }
+@media (min-width: 100px) {
+    .section {
+        padding: 100px 0;
+    }
 }
-
-@media (min-width: @screen-md-min) {
-  .card-columns {
-    column-count: 3;
-  }
-}
-
-@media (min-width: @screen-lg-min) {
-  .card-columns {
-    column-count: 4;
-  }
-} */
