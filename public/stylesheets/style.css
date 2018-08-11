@@ -87,7 +87,7 @@ ul {
 /* Landing Page */
 .parallax {
   /* background-image: url("../images/photo_stand_hires.jpg"); */
-  background-image: linear-gradient(#4aa, #44a);
+  background-image: linear-gradient(#44a, #4aa);
   min-height: 400px;
   margin-top: 35px;
   padding: 12em 0 10em 0;
