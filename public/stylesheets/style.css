@@ -53,8 +53,12 @@ input, textarea {
 }
 
 h1 {
-  font-size: 18px;
+  font-size: 24px;
   font-weight: normal;
+}
+
+h2 {
+  font-size: 18px;
 }
 
 ul {
@@ -81,16 +85,17 @@ ul {
 }
 
 /* Landing Page */
-header {
+.parallax {
+  /* background-image: url("../images/photo_stand_hires.jpg"); */
+  background-image: linear-gradient(#4aa, #44a);
+  min-height: 400px;
   margin-top: 35px;
   padding: 12em 0 10em 0;
-  height: 400px;
   width: 100%;
-  display: inline-block;
-  background-image: url("../images/pen_paper_hires.jpg");
-  background-size: cover;
-  background-position: center center;
+  background-attachment: fixed;
+  background-position: center;
   background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .section {
@@ -99,11 +104,20 @@ header {
 }
 
 .first-section {
-  background-color: #4aa;
+  background-image: linear-gradient(#fff7db, #fd6);
+  min-height: 400px;
+  margin-top: 35px;
+  padding: 12em 0 10em 0;
+  width: 100%;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .second-section {
-  background-color: #a44;
+  background-image: linear-gradient(#a4a, #a44);
+  margin-bottom: 10px;
 }
 
 /* Nav Bar */

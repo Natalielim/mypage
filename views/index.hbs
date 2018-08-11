@@ -1,31 +1,25 @@
 <body>
-  <header class="text-center">
-    <h1>Welcome to Portfolio</h1>
-    {{# if currentUserId}}
-      <a href="/users/{{username}}"><button>Go To Profile</button></a>
-    {{else}}
-      <a href="/users/new"><button>Get Started</button></a>
-    {{/if}}
-  </header>
+  <div class="parallax">
+    <header class="text-center">
+      <h1>Introducing Portfolio</h1>
+      <h2>A platform for sharing your own media</h2>
+      {{# if currentUserId}}
+        <a href="/users/{{username}}"><button>Go To Profile</button></a>
+      {{else}}
+        <a href="/users/new"><button>Get Started</button></a>
+      {{/if}}
+    </header>
+  </div>
 
   <div class="section first-section">
     <div class="container">
-      <div class="row justify-content-around align-items-center">
-        <div class="col-12 col-lg-7">
-          <h1 class="welcome-title">
-            <span class="typer" id="main" data-words="Hello there, Welcome to Portfolio" data-colors="rainbow" data-delay="100" data-deleteDelay="1000"></span>
-            <span class="cursor" data-owner="main"></span>
-          </h1>
-        </div>
-        <div class="col-12 col-lg-5">
-          <h2>Introducing Portfolio:</h2>
-          <h4>a platform for sharing your own media</h4>
-          <p>We're getting rid of all of the quantifiable metrics of self-worth</p>
-          <ul>
-            <li>No Likes</li>
-            <li>No Comments</li>
-            <li>No Followers</li>
-          </ul>
+      <div class="row justify-content-around text-center align-items-center">
+        <div class="col-12 col-sm-10 col-med-8 col-lg-5">
+          <h4>Say goodbye to quantifiable metrics</h4>
+          <h4 style="justify-content: center">
+          <span class="typer" id="main" data-words="No Likes, No Comments, No Followers" data-colors="rainbow" data-delay="100" data-deleteDelay="1000"></span>
+          <span class="cursor" data-owner="main"></span>
+          </h4>
         </div>
       </div>
     </div>
@@ -35,8 +29,8 @@
     <div class="container">
       <div class="row justify-content-center text-center">
         <div class="col-12 col-sm-10 col-med-8 col-lg-5">
-          <h2 id="about">Coming Soon</h2>
-          <p>These features are all in the works and will be released soon!</p>
+          <h4>Coming Soon</h4>
+          <h2 style="padding: 1em">These features are all in the works and will be released soon!</h2>
           <div class="row text-center">
             <div class="col-12 col-sm-6 col-lg-3">
               <p>Shareable link for personal profile</p>
