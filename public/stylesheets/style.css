@@ -112,6 +112,9 @@ ul {
   background-size: cover;
 }
 
+.first-section h2 {
+}
+
 .second-section {
   background-image: linear-gradient(#a4a, #a44);
   margin-bottom: 10px;
@@ -162,6 +165,15 @@ main {
 
 form {
   max-width: 20em;
+}
+
+.create-account, .login {
+  margin-top: 0!important;
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 /* User Page */
